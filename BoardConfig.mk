@@ -42,7 +42,7 @@ ARCH_ARM_HAVE_32_BYTE_CACHE_LINES := true
 ARCH_ARM_USE_NON_NEON_MEMCPY := true
 
 # Boot/Recovery image settings
-BOARD_KERNEL_CMDLINE := androidboot.selinux=enforcing
+BOARD_KERNEL_CMDLINE :=
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE :=
 
@@ -90,47 +90,43 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 8388608
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 805306368
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 29850022707
 BOARD_FLASH_BLOCK_SIZE := 4096
-# TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true
 
 # Try to build the kernel
-TARGET_KERNEL_SOURCE := kernel/asus/tf300t
+TARGET_KERNEL_SOURCE := kernel/asus/tegra3/unified
 TARGET_KERNEL_CONFIG := omni_me301t_defconfig
 TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.7
-
-# Prebuilt Kernel Fallback
-#TARGET_PREBUILT_KERNEL := device/asus/me301t/kernel
 
 # Allow overriding partition for boot image
 TARGET_RELEASETOOL_OTA_FROM_TARGET_ADDITIONAL_ARGS := --override_boot_partition=/staging
 
 # SELINUX Defines
-BOARD_SEPOLICY_DIRS := \
-    device/asus/me301t/sepolicy
+# BOARD_SEPOLICY_DIRS := \
+#    device/asus/me301t/sepolicy
 
-BOARD_SEPOLICY_UNION += \
-    file_contexts \
-    property_contexts \
-    service_contexts \
-    genfs_contexts \
-    bluetooth.te \
-    device.te \
-    domain.te \
-    drmserver.te \
-    file.te \
-    gpsd.te \
-    init.te \
-    init_shell.te \
-    keystore.te \
-    lmkd.te \
-    mediaserver.te \
-    property.te \
-    rild.te \
-    sensors_config.te \
-    surfaceflinger.te \
-    system_app.te \
-    system_server.te \
-    ueventd.te \
-    vold.te
+# BOARD_SEPOLICY_UNION += \
+#    file_contexts \
+#    property_contexts \
+#    service_contexts \
+#    genfs_contexts \
+#    bluetooth.te \
+#    device.te \
+#    domain.te \
+#    drmserver.te \
+#    file.te \
+#    gpsd.te \
+#    init.te \
+#    init_shell.te \
+#    keystore.te \
+#    lmkd.te \
+#    mediaserver.te \
+#    property.te \
+#    rild.te \
+#    sensors_config.te \
+#    surfaceflinger.te \
+#    system_app.te \
+#    system_server.te \
+#    ueventd.te \
+#    vold.te
 
 MALLOC_IMPL := dlmalloc
 
