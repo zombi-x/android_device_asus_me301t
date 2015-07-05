@@ -94,7 +94,7 @@ BOARD_FLASH_BLOCK_SIZE := 4096
 # Try to build the kernel
 TARGET_KERNEL_SOURCE := kernel/asus/tegra3/unified
 TARGET_KERNEL_CONFIG := omni_me301t_defconfig
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.7
+KERNEL_TOOLCHAIN := "$(ANDROID_BUILD_TOP)/prebuilts/gcc/$(strip $(HOST_OS))-x86/arm/arm-eabi-4.7/bin/"
 
 # Allow overriding partition for boot image
 TARGET_RELEASETOOL_OTA_FROM_TARGET_ADDITIONAL_ARGS := --override_boot_partition=/staging
