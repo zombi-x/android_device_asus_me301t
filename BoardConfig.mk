@@ -28,9 +28,7 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 TARGET_NO_RADIOIMAGE := true
 TARGET_BOOTLOADER_BOARD_NAME := cardhu
 TARGET_NO_BOOTLOADER := true
-
 TARGET_BOARD_PLATFORM := tegra
-
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
@@ -84,6 +82,8 @@ WIFI_DRIVER_FW_PATH_STA     := "/system/vendor/firmware/bcm4334/fw_bcmdhd.bin"
 WIFI_DRIVER_FW_PATH_AP      := "/system/vendor/firmware/bcm4334/fw_bcmdhd_apsta.bin"
 WIFI_DRIVER_FW_PATH_P2P     := "/system/vendor/firmware/bcm4334/fw_bcmdhd_p2p.bin"
 
+# Partitions info
+TARGET_USERIMAGES_USE_F2FS := true
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 8388608
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 8388608
@@ -128,23 +128,17 @@ TARGET_RELEASETOOL_OTA_FROM_TARGET_ADDITIONAL_ARGS := --override_boot_partition=
 #    ueventd.te \
 #    vold.te
 
+# Dynamic memory allocation
 MALLOC_IMPL := dlmalloc
 
-# Recovery Options
-BOARD_CUSTOM_BOOTIMG_MK := device/asus/me301t/recovery/recovery.mk
-BOARD_HAS_NO_SELECT_BUTTON := true
-BOARD_HAS_LARGE_FILESYSTEM := true
-BOARD_HAS_SDCARD_INTERNAL := true
-TARGET_RECOVERY_FSTAB := device/asus/me301t/ramdisk/fstab.cardhu
-TARGET_USERIMAGES_USE_F2FS := true
-
-#TWRP
+# TWRP
 TW_THEME := landscape_hdpi
 RECOVERY_SDCARD_ON_DATA := true
 BOARD_HAS_NO_REAL_SDCARD := true
-TW_NO_USB_STORAGE := true
-TW_NO_REBOOT_BOOTLOADER := true
-TW_NO_REBOOT_RECOVERY := true
+BOARD_HAS_LARGE_FILESYSTEM := true
 TW_INCLUDE_CRYPTO := true
+TW_EXCLUDE_SUPERSU := true
 TW_INTERNAL_STORAGE_PATH := "/data/media"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
+TARGET_RECOVERY_FSTAB := device/asus/me301t/ramdisk/fstab.cardhu
+BOARD_CUSTOM_BOOTIMG_MK := device/asus/me301t/recovery/recovery.mk
